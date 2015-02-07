@@ -1,0 +1,8 @@
+Host si2
+	HostName 192.168.56.1
+	User si2
+	
+Host *
+	ControlMaster auto
+	ControlPath /tmp/%r@ty:%p
+
