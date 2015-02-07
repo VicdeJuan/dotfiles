@@ -78,7 +78,7 @@ source $ZSH/oh-my-zsh.sh
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
-. /home/vicdejuan/.dotfiles/z.sh
+. ~/.dotfiles/z.sh
 function openpdf { evince $@ 2&>/dev/null & }
 alias evince=openpdf
 alias sl=ls
