@@ -1,0 +1,20 @@
+#!/bin/bash
+
+function update_dot_file {
+	for i in $1; do
+		rm ~/$i
+		ln -s $i ~/
+	done
+}
+
+## ZSH files
+files=".zshrc"
+
+update_dot_file $files
+
+## TMUX files
+files=".tmux.conf"
+
+update_dot_file $files
+
+
