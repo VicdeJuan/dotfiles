@@ -82,5 +82,5 @@ source $ZSH/oh-my-zsh.sh
 function openpdf { evince $@ 2&>/dev/null & }
 alias evince=openpdf
 alias sl=ls
-tmux -s main
+tmux attach || tmux new 
 clear
