@@ -10,11 +10,11 @@ function update_dot_file {
 ## ZSH files
 file="zshrc"
 rm ~/.$file
-ln -s $file ~/.$file
+cp $file ~/.$file
 
 ## TMUX files
 file="tmux.conf"
 rm ~/.$file
-ln -s $file ~/.$file
+cp $file ~/.$file
 
 
