@@ -81,6 +81,7 @@ source $ZSH/oh-my-zsh.sh
 . ~/.dotfiles/z.sh
 function openpdf { evince $@ 2&>/dev/null & }
 alias evince=openpdf
+function ltxmk { latexmk -pdf -silent -shell-escape $@ }
 alias sl=ls
 tmux attach || tmux new 
 clear
