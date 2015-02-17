@@ -79,9 +79,14 @@ source $ZSH/oh-my-zsh.sh
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 . ~/.dotfiles/z.sh
+alias eclipse="/home/vicdejuan/Documents/Programacion/eclipse/eclipse"
 function openpdf { evince $@ 2&>/dev/null & }
 alias evince=openpdf
+export TERM="xterm-256color"
 function ltxmk { latexmk -pdf -silent -shell-escape $@ }
 alias sl=ls
-tmux attach || tmux new 
+tmux new
 clear
+clear
+function music { vlc $@/*.mp3 &>/dev/null & }
+alias asadmin=/usr/local/glassfish-4.1/bin/asadmin

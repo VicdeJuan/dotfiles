@@ -50,7 +50,6 @@ execute pathogen#infect()
 
 syntax enable
 set background=dark
-colorscheme solarized
 
 " vim-airline
 set laststatus=2
