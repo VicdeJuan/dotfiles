@@ -90,3 +90,4 @@ clear
 clear
 function music { vlc $@/*.mp3 &>/dev/null & }
 alias asadmin=/usr/local/glassfish-4.1/bin/asadmin
+export J2EE_HOME=/usr/local/glassfish-4.1/glassfish
