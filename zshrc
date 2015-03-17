@@ -81,6 +81,8 @@ source $ZSH/oh-my-zsh.sh
 . ~/.dotfiles/z.sh
 alias eclipse="/home/vicdejuan/Documents/Programacion/eclipse/eclipse"
 function openpdf { evince $@ 2&>/dev/null & }
+function opendir { nautilus $@ 2&>/dev/null &}
+alias nautilus=opendir
 alias evince=openpdf
 export TERM="xterm-256color"
 function ltxmk { latexmk -pdf -silent -shell-escape $@ }
@@ -91,3 +93,5 @@ clear
 function music { vlc $@/*.mp3 &>/dev/null & }
 alias asadmin=/usr/local/glassfish-4.1/bin/asadmin
 export J2EE_HOME=/usr/local/glassfish-4.1/glassfish
+alias hubix=hubix
+
