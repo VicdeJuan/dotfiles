@@ -1,0 +1,33 @@
+#!/bin/zsh
+
+date=$(date --rfc-3339=s | awk -v FS=" " '{print $1}')
+
+dir="/home/vicdejuan/SpiderOak Hive/Backups/"
+
+newdir=$dir$date
+
+mkdir -p $newdir
+dpkg --get-selections > $newdir"/Package.list"
+sudo cp -R /etc/apt/sources.list* $newdir
+sudo apt-key exportall > $newdir"/Repo.keys"
+
+diff -r $newdir $dir"last"
+
+if [[ $? -ne 0 ]];then
+	mv $newdir $dir"last"
+else
+	sudo rm -rf $newdir
+fi
+
+
+
+############# To recover
+#sudo apt-key add ~/Repo.keys
+#sudo cp -R ~/sources.list* /etc/apt/
+#sudo apt-get update
+#sudo apt-get install dselect
+#sudo dpkg --set-selections < ~/Package.list
+#sudo apt-get dselect-upgrade -y
+
+
+
