@@ -1,0 +1,30 @@
+#!/bin/zsh
+
+date=$(date --rfc-3339=s | awk -v FS=" " '{print $1}')
+
+dir=$1"/"$date
+
+if [[ $1 == "" ]]; then
+        echo "Argumento por favor"
+else
+	mkdir $dir
+	echo "dpkg --get-selections..."
+	dpkg --get-selections > $dir"/Package.list"
+	echo "sources.list..."
+	sudo cp -R /etc/apt/sources.list* $dir
+	echo "apt-key..."
+	sudo apt-key exportall > $dir"/Repo.keys"
+	echo "all done"
+fi
+
+
+############# To recover
+#sudo apt-key add ~/Repo.keys
+#sudo cp -R ~/sources.list* /etc/apt/
+#sudo apt-get update
+#sudo apt-get install dselect
+#sudo dpkg --set-selections < ~/Package.list
+#sudo apt-get dselect-upgrade -y
+
+
+
