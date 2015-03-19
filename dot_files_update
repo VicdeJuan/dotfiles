@@ -9,7 +9,13 @@ function update_dot_file {
 
 $files="zshrc tmux-conf vimrc vim dircolors"
 
+# update conf files
 update_dot_file($files)
+
+#add keyboard layout if possible
+cd ~/.dotfiles/KeyboardLayout
+./push own
+
 
 ## ZSH files
 #file="zshrc"
