@@ -1,20 +1,17 @@
-#!/bin/bash
+#!/bin/sh
 
-function update_dot_file {
-	for i in $1; do
-		rm ~/$i
-		ln -s ~/.dotfiles/$i ~/.$i
-	done
-}
 
-$files="zshrc tmux-conf vimrc vim dircolors"
+files='zshrc tmux-conf vimrc vim dircolors'
 
-# update conf files
-update_dot_file($files)
+for i in $files; do
+	ln -s ~/.dotfiles/$i ~/.$i
+done
+
 
 #add keyboard layout if possible
 cd ~/.dotfiles/KeyboardLayout
-./push own
+sudo ./push own
+
 
 
 ## ZSH files
