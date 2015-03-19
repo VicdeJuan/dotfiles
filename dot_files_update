@@ -3,18 +3,22 @@
 function update_dot_file {
 	for i in $1; do
 		rm ~/$i
-		ln -s $i ~/
+		ln -s ~/.dotfiles/$i ~/.$i
 	done
 }
 
+$files="zshrc tmux-conf vimrc vim dircolors"
+
+update_dot_file($files)
+
 ## ZSH files
-file="zshrc"
-rm ~/.$file
-cp $file ~/.$file
+#file="zshrc"
+#rm ~/.$file
+#cp $file ~/.$file
 
 ## TMUX files
-file="tmux.conf"
-rm ~/.$file
-cp $file ~/.$file
+#file="tmux.conf"
+#rm ~/.$file
+#cp $file ~/.$file
 
 
