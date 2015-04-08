@@ -25,6 +25,6 @@ fi
 #sudo apt-get install dselect
 #sudo dpkg --set-selections < ~/Package.list
 #sudo apt-get dselect-upgrade -y
-
+#sudo chsh -s /bin/zsh
 
 
