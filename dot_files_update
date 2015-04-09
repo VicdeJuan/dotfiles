@@ -11,7 +11,7 @@ done
 
 
 #add keyboard layout if possible
-sudo ~/.dotfiles/KeyboardLayout/push own
+#sudo ~/.dotfiles/KeyboardLayout/push own
 
 
 
