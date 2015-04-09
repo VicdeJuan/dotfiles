@@ -1,16 +1,16 @@
 #!/bin/sh
 
 
-files='zshrc tmux-conf vimrc vim dircolors'
+files='zshrc tmux-conf vimrc vim dircolors bashrc'
 
+cd
 for i in $files; do
 	ln -s ~/.dotfiles/$i ~/.$i
 done
 
 
 #add keyboard layout if possible
-cd ~/.dotfiles/KeyboardLayout
-sudo ./push own
+sudo ~/.dotfiles/KeyboardLayout push own
 
 
 

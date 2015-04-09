@@ -118,5 +118,5 @@ fi
 # TMUX
 if which tmux >/dev/null 2>&1; then
     #if not inside a tmux session, and if no session is started, start a new session
-    test -z "$TMUX" && (tmux attach || tmux new-session)
+    test -z "$TMUX" && (tmux attach source-file ~/.tmux.conf || tmux new-session source-file ~/.tmux.conf)
 fi
