@@ -1,11 +1,11 @@
 #!/bin/sh
 
 
-files='zshrc tmux-conf vimrc vim dircolors bashrc'
+files='zshrc tmux.conf vimrc vim dircolors bashrc'
 
 cd
 for i in $files; do
-	rm ~/.$i
+	rm -r ~/.$i
 	ln -s ~/.dotfiles/$i ~/.$i
 done
 
