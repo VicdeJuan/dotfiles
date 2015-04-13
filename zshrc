@@ -85,7 +85,7 @@ function opendir { nautilus $@ 2&>/dev/null &}
 alias nautilus=opendir
 alias evince=openpdf
 export TERM="xterm-256color"
-function ltxmk { latexmk -shell-escape -synctex=1 -pdf -silent -interaction=nonstopmode -pvc $@ }
+function ltxmk { latexmk -shell-escape -synctex=1 -pdf -silent -interaction=nonstopmode $@ }
 alias sl=ls
 function music { vlc $@/*.mp3 &>/dev/null & }
 alias asadmin=/usr/local/glassfish-4.1/bin/asadmin
