@@ -94,7 +94,6 @@ export J2EE_HOME=/usr/local/glassfish-4.1/glassfish
 alias hubix=hubix
 alias subl2="/home/vicdejuan/Documents/Programacion/Sublime\ Text\ 2/sublime_text"
 function st2 { subl2 $@ 2&>/dev/null & }
-tmux new
 clear
 clear
 
