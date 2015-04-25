@@ -81,7 +81,14 @@ source $ZSH/oh-my-zsh.sh
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 . ~/.dotfiles/z.sh
 alias eclipse="/home/vicdejuan/Documents/Programacion/eclipse/eclipse"
-function openpdf { evince $@ 2&>/dev/null & }
+function openpdf {
+	if [[ -z $@ ]];
+	then
+		evince *.pdf 2&>/dev/null &
+	else
+		evince $@ 2&>/dev/null &
+	fi;
+}
 function opendir { nautilus $@ 2&>/dev/null &}
 alias nautilus=opendir
 alias evince=openpdf
