@@ -89,6 +89,7 @@ function openpdf {
 		evince $@ 2&>/dev/null &
 	fi;
 }
+#function vim { cowsay "Not today" && gnome-screensaver-command -l}
 function opendir { nautilus $@ 2&>/dev/null &}
 alias nautilus=opendir
 alias evince=openpdf
