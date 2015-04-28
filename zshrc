@@ -105,3 +105,4 @@ function st2 { subl2 $@ 2&>/dev/null & }
 clear
 clear
 
+export EDITOR=vim
