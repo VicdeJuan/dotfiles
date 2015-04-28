@@ -1,0 +1,14 @@
+function protect {	cowsay "Not today" && gnome-screensaver-command -l }
+
+function vim {
+	cowsay "Not today" && gnome-screensaver-command -l
+}
+
+alias vim=protect
+alias nano=protect
+alias ed=protect
+alias subl=protect
+alias cd="echo \"No voy a hacer cd\""
+alias ls="echo \"No voy a hacer ls\""
+function rm { echo "No hijo no..."}
+alias alias="cowsay \"La proxima me suspendo\""
