@@ -88,7 +88,7 @@ function openpdf {
 		evince $@ 2&>/dev/null &
 	fi;
 }
-#function vim { cowsay "Not today" && gnome-screensaver-command -l}
+git config --global alias.lg "log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit"
 function opendir { nautilus $@ 2&>/dev/null &}
 alias nautilus=opendir
 alias evince=openpdf
