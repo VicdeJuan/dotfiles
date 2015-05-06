@@ -92,6 +92,16 @@ git config --global alias.lg "log --color --graph --pretty=format:'%Cred%h%Crese
 function opendir { nautilus $@ 2&>/dev/null &}
 alias nautilus=opendir
 alias evince=openpdf
+httprep="/media/vicdejuan/TOLAI/Carrera/Apuntes"
+sshrep="/home/vicdejuan/Documents/Carrera/Apuntes"
+function http_pull {
+	if [[ -z $@ ]];
+	then
+		echo "cd $httprep" && cd  $httprep && git pull && cd "$sshrep" && cd $sshrep && git pull $httprep
+	else
+		cd $1 && git pull && cd $2 && git pull $1
+	fi;
+}
 export TERM="xterm-256color"
 function ltxmk { latexmk -shell-escape -synctex=1 -pdf -silent -interaction=nonstopmode $@ }
 alias sl=ls
