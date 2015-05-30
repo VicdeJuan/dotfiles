@@ -117,3 +117,7 @@ clear
 export EDITOR=vim
 
 . ~/.zsh_aliases
+
+
+# OPAM configuration
+. /home/vicdejuan/.opam/opam-init/init.zsh > /dev/null 2> /dev/null || true
