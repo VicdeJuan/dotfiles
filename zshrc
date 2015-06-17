@@ -122,3 +122,4 @@ export EDITOR=vim
 
 # OPAM configuration
 . /home/vicdejuan/.opam/opam-init/init.zsh > /dev/null 2> /dev/null || true
+alias spass="~/../../Applications/SPASS 3.5/SPASS"
