@@ -7,7 +7,7 @@ export ZSH=$HOME/.oh-my-zsh
 # time that oh-my-zsh is loaded.
 ZSH_THEME="frisk"
 #ZSH_THEME="robbyrussell"
-
+ZSH_THEME="miloshadzic"
 # Uncomment the following line to use case-sensitive completion.
 # CASE_SENSITIVE="true"
 
@@ -122,4 +122,4 @@ export EDITOR=vim
 
 # OPAM configuration
 . /home/vicdejuan/.opam/opam-init/init.zsh > /dev/null 2> /dev/null || true
-alias spass="~/../../Applications/SPASS 3.5/SPASS"
+	alias spass="/Applications/SPASS\ 3.5/SPASS"

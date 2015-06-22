@@ -122,3 +122,4 @@ if which tmux >/dev/null 2>&1; then
 fi
 
 alias ..="cd .."
+	alias spass="/Applications/SPASS\ 3.5/SPASS"
