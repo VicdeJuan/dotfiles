@@ -46,13 +46,13 @@ ZSH_THEME="miloshadzic"
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git)
+plugins=(git svn)
 
 # User configuration
 
 #export PATH="/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games"
 # export MANPATH="/usr/local/man:$MANPATH"
-export PATH="/opt/local/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/MacGPG2/bin:/usr/texbin"
+export PATH="/opt/local/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/MacGPG2/bin:/usr/texbin:/Applications/SPASS\ 3.5:/Applications/yices-1.0.40/bin:/Users/victordejuan/Documents/ares/src/leap/trunk/leap/bin"
 
 source $ZSH/oh-my-zsh.sh
 
@@ -106,14 +106,6 @@ function http_pull {
 export TERM="xterm-256color"
 function ltxmk { latexmk -shell-escape -synctex=1 -pdf -silent -interaction=nonstopmode $@ }
 alias sl=ls
-function music { vlc $@/*.mp3 &>/dev/null & }
-alias asadmin=/usr/local/glassfish-4.1/bin/asadmin
-export J2EE_HOME=/usr/local/glassfish-4.1/glassfish
-alias hubix=hubix
-alias subl2="/home/vicdejuan/Documents/Programacion/Sublime\ Text\ 2/sublime_text"
-function st2 { subl2 $@ 2&>/dev/null & }
-clear
-clear
 
 export EDITOR=vim
 
@@ -122,4 +114,16 @@ export EDITOR=vim
 
 # OPAM configuration
 . /home/vicdejuan/.opam/opam-init/init.zsh > /dev/null 2> /dev/null || true
-	alias spass="/Applications/SPASS\ 3.5/SPASS"
+alias spass="/Applications/SPASS\ 3.5/SPASS"
+function spch_check {
+	echo "·Conjecture to prove:"
+	cat $@"yes.dfg" | grep conjectures -A -1
+	echo -n "Result: "
+	spass $@"yes.dfg" | grep beiseite
+	echo "·Conjecture to prove:"
+	cat $@"no.dfg" | grep conjectures -A -1
+	echo -n "Result: "
+	spass $@"no.dfg" | grep beiseite
+}
+function spch {
+	spass $@"yes.dfg" | grep beiseite && spass $@"no.dfg" | grep beiseite }
