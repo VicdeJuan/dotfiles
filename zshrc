@@ -52,7 +52,7 @@ plugins=(git svn)
 
 #export PATH="/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games"
 # export MANPATH="/usr/local/man:$MANPATH"
-export PATH="/opt/local/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/MacGPG2/bin:/usr/texbin:/Applications/SPASS\ 3.5:/Applications/yices-1.0.40/bin:/Users/victordejuan/Documents/ares/src/leap/trunk/leap/bin"
+export PATH="/opt/local/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/MacGPG2/bin:/usr/texbin:/Applications/SPASS3.5:/Applications/yices-1.0.40/bin:/Users/victordejuan/Documents/ares/src/leap/trunk/bin"
 
 source $ZSH/oh-my-zsh.sh
 
@@ -114,16 +114,4 @@ export EDITOR=vim
 
 # OPAM configuration
 . /home/vicdejuan/.opam/opam-init/init.zsh > /dev/null 2> /dev/null || true
-alias spass="/Applications/SPASS\ 3.5/SPASS"
-function spch_check {
-	echo "·Conjecture to prove:"
-	cat $@"yes.dfg" | grep conjectures -A -1
-	echo -n "Result: "
-	spass $@"yes.dfg" | grep beiseite
-	echo "·Conjecture to prove:"
-	cat $@"no.dfg" | grep conjectures -A -1
-	echo -n "Result: "
-	spass $@"no.dfg" | grep beiseite
-}
-function spch {
-	spass $@"yes.dfg" | grep beiseite && spass $@"no.dfg" | grep beiseite }
+. .zsh_spass_functions

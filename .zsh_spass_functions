@@ -1,0 +1,32 @@
+
+function spch_check {
+	echo "·Conjecture to prove:"
+	cat $@"yes.dfg" | grep conjectures -A -1
+	echo -n "Result: "
+	spass $@"yes.dfg" | grep beiseite
+	echo "·Conjecture to prove:"
+	cat $@"no.dfg" | grep conjectures -A -1
+	echo -n "Result: "
+	spass $@"no.dfg" | grep beiseite
+}
+function spch {
+	spass $@"yes.dfg" | grep beiseite && spass $@"no.dfg" | grep beiseite }
+function multspass {
+	file=$(echo $1 | awk -v FS="." '{print $1}')
+	cat list.dfg | grep conjectures -B -1 | grep -v conjectures > .template
+	# yes file
+	aux=/tmp/$file"-yes.dfg"
+	cat .template > $aux
+	echo "list_of_formulae(conjectures)." >> $aux
+	cat $1 >> /tmp/$file"-yes.dfg" >> $aux
+	echo "end_of_list." >> $aux
+	echo "end_problem." >> $aux
+	# no file
+	aux=/tmp/$file"-no.dfg"
+	cat .template >$aux
+	echo "list_of_formulae(conjectures)." >> $aux
+	sed -e 's/formula(/formula(not(/' -e 's/)\./))./' $1 >>$aux
+	echo "end_of_list." >> $aux
+	echo "end_problem." >> $aux
+	spch /tmp/$file"-"
+}
