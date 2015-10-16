@@ -122,3 +122,4 @@ if which tmux >/dev/null 2>&1; then
 fi
 
 alias ..="cd .."
+export RECIPEPUPPY_HOSTPORT=www.recipepuppy.com:80
