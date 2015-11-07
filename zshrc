@@ -20,6 +20,8 @@ ZSH_THEME="frisk"
 # Uncomment the following line to disable colors in ls.
 # DISABLE_LS_COLORS="true"
 
+LS_COLORS=$LS_COLORS:'di=102;35:' ; export LS_COLORS
+
 # Uncomment the following line to disable auto-setting terminal title.
 # DISABLE_AUTO_TITLE="true"
 
@@ -50,7 +52,7 @@ plugins=(git)
 
 # User configuration
 
-export PATH="/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/home/vicdejuan/Documents/Programacion/android-studio/bin"
+export PATH="/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/home/vicdejuan/Documents/Programacion/android-studio/bin:/home/vicdejuan/.rbenv/bin:/home/vicdejuan/.rbenv/plugins/ruby-build/bin:/home/vicdejuan/ares/src/leap/trunk/bin"
 # export MANPATH="/usr/local/man:$MANPATH"
 
 source $ZSH/oh-my-zsh.sh

@@ -123,3 +123,4 @@ fi
 
 alias ..="cd .."
 export RECIPEPUPPY_HOSTPORT=www.recipepuppy.com:80
+export RECIPEPUPPY_HOSTPORT=www.recipepuppy.com:80
