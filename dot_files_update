@@ -1,28 +1,41 @@
-#!/bin/sh
+#!/bin/bash
 
+# Updated Dotfiles Installer
+# Uses vim-plug and safely backs up existing files.
 
-files='zshrc vimrc vim dircolors bashrc'
+DOTFILES_DIR="$HOME/.dotfiles"
+BACKUP_DIR="$HOME/dotfiles_backup_$(date +%Y%m%d_%H%M%S)"
+FILES="zshrc vimrc vim dircolors bashrc tmux.conf"
 
-cd
-for i in $files; do
-	rm -r ~/.$i
-	ln -s ~/.dotfiles/$i ~/.$i
+echo "Creating backup directory at $BACKUP_DIR..."
+mkdir -p "$BACKUP_DIR"
+
+# Link files
+for file in $FILES; do
+    target="$HOME/.$file"
+    source="$DOTFILES_DIR/$file"
+
+    if [ -e "$target" ] || [ -L "$target" ]; then
+        echo "Backing up existing .$file..."
+        mv "$target" "$BACKUP_DIR/"
+    fi
+
+    echo "Linking .$file -> $source"
+    ln -s "$source" "$target"
 done
 
+# Install vim-plug if not present
+if [ ! -f "$HOME/.vim/autoload/plug.vim" ]; then
+    echo "Installing vim-plug..."
+    curl -fLo "$HOME/.vim/autoload/plug.vim" --create-dirs \
+        https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+fi
 
-#add keyboard layout if possible
-#sudo ~/.dotfiles/KeyboardLayout/push own
+# Create directory for plugins
+mkdir -p "$HOME/.vim/plugged"
 
+echo "Installing Vim plugins..."
+vim +PlugInstall +qall
 
-
-## ZSH files
-#file="zshrc"
-#rm ~/.$file
-#cp $file ~/.$file
-
-## TMUX files
-#file="tmux.conf"
-#rm ~/.$file
-#cp $file ~/.$file
-
-
+echo "Done! Restart your shell/tmux to see changes."
+echo "Your old config files are in $BACKUP_DIR"
