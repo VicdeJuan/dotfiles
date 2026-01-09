@@ -3,7 +3,7 @@
 # Updated Dotfiles Installer
 # Uses vim-plug and safely backs up existing files.
 
-DOTFILES_DIR="$HOME/.dotfiles"
+DOTFILES_DIR="$HOME/dotfiles"
 BACKUP_DIR="$HOME/dotfiles_backup_$(date +%Y%m%d_%H%M%S)"
 FILES="zshrc vimrc vim dircolors bashrc tmux.conf"
 
